@@ -1,6 +1,6 @@
 {
     "name": "alex/thunder-heroku",
-    "description": "Fake composer.json so Heroku will build",
+    "description": "Will be removed",
     "authors": [
         {
             "name": "Alex Pott",

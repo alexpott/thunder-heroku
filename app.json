@@ -2,20 +2,5 @@
   "name": "Thunder Heroku",
   "description": "Deploys the Thunder CMS to Heroku",
   "repository": "https://github.com/alexpott/thunder-heroku",
-  "addons": [],
-  "env": {
-    "COMPOSER": {
-      "description": "The location of the composer.json to build.",
-      "value": "thunder-develop/composer.json"
-    },
-    "BLAH": {
-      "description": "The location of the composer.json to build.",
-      "value": "thunder-develop/composer.json"
-    }
-  },
-  "buildpacks": [
-    {
-      "url": "heroku/php"
-    }
-  ]
+  "addons": []
 }
