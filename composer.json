@@ -1,0 +1,11 @@
+{
+    "name": "alex/thunder-heroku",
+    "description": "Fake composer.json so Heroku will build",
+    "authors": [
+        {
+            "name": "Alex Pott",
+            "email": "alex.a.pott@googlemail.com"
+        }
+    ],
+    "require": {}
+}
