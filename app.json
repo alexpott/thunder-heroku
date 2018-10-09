@@ -7,6 +7,10 @@
     "COMPOSER": {
       "description": "The location of the composer.json to build.",
       "value": "thunder-develop/composer.json"
+    },
+    "BLAH": {
+      "description": "The location of the composer.json to build.",
+      "value": "thunder-develop/composer.json"
     }
   },
   "buildpacks": [
