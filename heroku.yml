@@ -1,9 +1,9 @@
 build:
   languages:
     - php
-  pre:
-    - composer create-project thunder/thunder-develop -s dev --working-dir=./
+#  pre:
   post:
-    - composer drupal-scaffold
+    - /app/.heroku/php-min/bin/php /app/.heroku/php/bin/composer create-project thunder/thunder-develop -s dev --working-dir=./
+    - /app/.heroku/php-min/bin/php /app/.heroku/php/bin/composer drupal-scaffold
 run:
   web: vendor/bin/heroku-php-apache2 docroot/
