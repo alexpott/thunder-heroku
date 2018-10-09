@@ -1,0 +1,139 @@
+{
+    "name": "thunder/thunder-develop",
+    "description": "Project for thunder development.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Daniel Bosen",
+            "email": "daniel.bosen@burda.com"
+        },
+        {
+            "name": "Christian Fritsch",
+            "email": "christian.fritsch@burda.com"
+        },
+        {
+            "name": "Mladen Todorovic",
+            "email": "mladen.todorovic@burda.com"
+        },
+        {
+            "name": "Volker Killesreiter",
+            "email": "killesreiter@burda.com"
+        },
+        {
+            "name": "Alex Pott",
+            "email": "alex.a.pott@gmail.com"
+        }
+    ],
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "admin": {
+            "type": "git",
+            "url": "git@github.com:BurdaMagazinOrg/theme-thunder-admin.git"
+        },
+        "thunder": {
+            "type": "git",
+            "url": "git@github.com:BurdaMagazinOrg/thunder-distribution.git"
+        },
+        "paragraphs_features": {
+            "type": "git",
+            "url": "git@github.com:thunder/paragraphs_features.git"
+        },
+        "custom_list": {
+            "type": "git",
+            "url": "git@github.com:thunder/custom_list.git"
+        },
+        "select2": {
+            "type": "git",
+            "url": "git@github.com:thunder/select2.git"
+        },
+        "riddle": {
+            "type": "git",
+            "url": "git@github.com:BurdaMagazinOrg/module-riddle_marketplace.git"
+        }
+    },
+    "require": {
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6",
+        "drupal/core": "~8.5",
+        "drupal-composer/drupal-scaffold": "^2.2",
+        "drush/drush": "~8.0",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3",
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "drupal/console": "~1.0",
+        "burdamagazinorg/image-derive-all": "dev-master",
+        "npm-asset/select2": "~4.0"
+    },
+    "require-dev": {
+        "webflo/drupal-core-require-dev": "^8.4"
+    },
+    "replace": {
+        "drupal/thunder_admin": "*",
+        "drupal/paragraphs_features": "*",
+        "drupal/select2": "*",
+        "drupal/custom_list": "*",
+        "drupal/riddle_marketplace": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "pre-update-cmd": [
+            "ThunderDevelop\\composer\\ScriptHandler::downloadDevelopPackages"
+        ],
+        "post-install-cmd": [
+            "ThunderDevelop\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "ThunderDevelop\\composer\\ScriptHandler::createRequiredFiles"
+        ]
+    },
+    "extra": {
+        "installer-types": ["bower-asset", "npm-asset"],
+        "installer-paths": {
+            "docroot/core": ["type:drupal-core"],
+            "docroot/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "docroot/modules/contrib/{$name}": ["type:drupal-module"],
+            "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "merge-plugin": {
+            "include": [
+                "docroot/profiles/contrib/thunder/composer.json"
+            ],
+            "replace": true,
+            "merge-extra": true,
+            "merge-extra-deep": true
+        },
+        "local-develop-packages": {
+            "burdamagazinorg/thunder": "dev-8.x-2.x",
+            "drupal/thunder_admin": "dev-8.x-2.x",
+            "drupal/paragraphs_features": "dev-8.x-1.x",
+            "drupal/select2": "dev-8.x-1.x",
+            "drupal/custom_list": "dev-8.x-1.x",
+            "drupal/riddle_marketplace": "dev-8.x-2.x"
+        },
+        "enable-patching": true
+    },
+    "config": {
+        "process-timeout": 2000
+    }
+}
