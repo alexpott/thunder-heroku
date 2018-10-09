@@ -3,7 +3,7 @@ build:
     - php
 #  pre:
   post:
-    - /app/.heroku/php-min/bin/php /app/.heroku/php/bin/composer create-project thunder/thunder-develop -s dev --working-dir=./
-    - /app/.heroku/php-min/bin/php /app/.heroku/php/bin/composer drupal-scaffold
+    - composer create-project thunder/thunder-develop -s dev --working-dir=./
+    - composer drupal-scaffold
 run:
   web: vendor/bin/heroku-php-apache2 docroot/
