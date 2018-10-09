@@ -2,6 +2,6 @@ build:
   languages:
     - php
   config:
-    COMPOSER: thunder-develop/composer.json
+    COMPOSER: /app/thunder-develop/composer.json
 run:
   web: vendor/bin/heroku-php-apache2 thunder-develop/docroot/
